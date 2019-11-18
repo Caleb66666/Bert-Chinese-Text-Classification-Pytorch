@@ -11,7 +11,7 @@ class Config(object):
     def __init__(self, dataset):
         self.model_name = 'bert'
         self.train_path = dataset + '/data/train.csv'                                # 训练集
-        self.dev_path = dataset + '/data/dev.csv'                                    # 验证集
+        self.valid_path = dataset + '/data/valid.csv'                                    # 验证集
         self.test_path = dataset + '/data/test.csv'                                  # 测试集
         self.class_list = [x.strip() for x in open(
             dataset + '/data/class.txt').readlines()]                                # 类别名单
@@ -25,6 +25,7 @@ class Config(object):
         self.pad_size = 32                                              # 每句话处理成的长度(短填长切)
         self.learning_rate = 5e-5                                       # 学习率
         self.bert_path = '/home/wangqian/bert_model/bert-base-chinese/'
+        # self.bert_path = "/Users/Vander/Code/pytorch_col/bert-base-chinese/"
         self.tokenizer = BertTokenizer.from_pretrained(self.bert_path)
         self.hidden_size = 768
 
