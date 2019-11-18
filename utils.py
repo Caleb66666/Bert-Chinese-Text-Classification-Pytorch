@@ -36,7 +36,7 @@ def build_dataset(config):
                 lin = line.strip()
                 if not lin:
                     continue
-                pretreatment_line(line, config.tokenizer, pad_size)
+                pretreatment_line(line, contents, config.tokenizer, pad_size)
         return contents
 
     train = load_ds(config.train_path, config.pad_size)
