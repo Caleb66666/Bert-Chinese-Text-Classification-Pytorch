@@ -3,6 +3,7 @@ import torch
 from tqdm import tqdm
 import time
 from datetime import timedelta
+import numpy as np
 
 PAD, CLS = '[PAD]', '[CLS]'  # padding符号, bert中综合信息符号
 
@@ -31,7 +32,7 @@ def build_dataset(config):
                         mask = [1] * pad_size
                         token_ids = token_ids[:pad_size]
                         seq_len = pad_size
-                contents.append((token_ids, int(label), seq_len, mask))
+                contents.append((token_ids, int(label), seq_len, np.array(mask)))
         return contents
     train = load_dataset(config.train_path, config.pad_size)
     dev = load_dataset(config.dev_path, config.pad_size)
