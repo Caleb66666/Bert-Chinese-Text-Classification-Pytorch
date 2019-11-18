@@ -4,6 +4,7 @@ from tqdm import tqdm
 import time
 from datetime import timedelta
 import numpy as np
+from itertools import islice
 
 PAD, CLS = '[PAD]', '[CLS]'  # padding符号, bert中综合信息符号
 
@@ -13,7 +14,7 @@ def build_dataset(config):
     def load_dataset(path, pad_size=32):
         contents = []
         with open(path, 'r', encoding='UTF-8') as f:
-            for line in tqdm(f):
+            for line in tqdm(islice(f, 1, None)):
                 lin = line.strip()
                 if not lin:
                     continue
