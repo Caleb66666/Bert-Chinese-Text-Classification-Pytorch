@@ -11,7 +11,7 @@ class Config(object):
     def __init__(self, dataset):
         self.model_name = 'bert'
         self.train_path = dataset + '/data/train.csv'                                # 训练集
-        self.valid_path = dataset + '/data/valid.csv'                                    # 验证集
+        self.dev_path = dataset + '/data/valid.csv'                                    # 验证集
         self.test_path = dataset + '/data/test.csv'                                  # 测试集
         self.class_list = [x.strip() for x in open(
             dataset + '/data/class.txt').readlines()]                                # 类别名单
